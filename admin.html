@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Administration</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div id="userInfo">Bonjour, Admin ...</div>
+            <button id="btnGoToDashboard">Retour au Dashboard</button>
+            <button id="btnLogout">Déconnexion</button>
+        </nav>
+
+
+        <div class="container">
+            <nav>
+                </nav>
+    
+                <section class="admin-stats-container">
+                    <div class="stat-box">
+                        <span class="stat-value" id="statTotalUsers">0</span>
+                        <span class="stat-label">Utilisateurs Inscrits</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="statTotalTasks">0</span>
+                        <span class="stat-label">Tâches Créées</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" id="statTotalComments">0</span>
+                        <span class="stat-label">Commentaires Postés</span>
+                    </div>
+                </section>
+
+
+
+        <main>
+            <h2>Panneau d'Administration</h2>
+            
+            <section id="adminUsers">
+                <h3>Gestion des Utilisateurs</h3>
+                <table id="usersTable">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Email</th>
+                            <th>Rôle</th>
+                            <th>Inscrit le</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersList">
+                        </tbody>
+                </table>
+            </section>
+            
+            <hr>
+
+            <section id="adminTasks">
+                <h3>Toutes les Tâches</h3>
+                <div id="allTasksList">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="assets/js/admin.js"></script>
+</body>
+</html>

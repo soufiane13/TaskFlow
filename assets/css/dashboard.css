@@ -1,0 +1,359 @@
+/* Styles spécifiques au tableau de bord */
+
+body { 
+    display: block; 
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+nav #userInfo { 
+    font-weight: bold; 
+    font-size: 1.1em;
+}
+
+nav button { 
+    background-color: #dc3545; 
+    color: white; 
+}
+
+/* Styles pour le formulaire d'ajout */
+#formAddTask {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+#formAddTask input[type="text"],
+#formAddTask textarea,
+#formAddTask input[type="date"],
+#formAddTask select {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#formAddTask button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+}
+
+
+#formAddTask label {
+    position: absolute;
+    left: -10000px; /*  les envoie hors de l'écran */
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* Styles pour la liste des tâches */
+#tasks-container {
+    margin-top: 20px;
+}
+
+.task-card {
+    background: #fff;
+    border: 1px solid #eee;
+    border-left: 5px solid #007bff; 
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+
+.task-card.priority-Élevée { border-left-color: #dc3545; }
+.task-card.priority-Moyenne { border-left-color: #ffc107; }
+.task-card.priority-Faible { border-left-color: #28a745; }
+
+
+.task-card h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.task-card p {
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+.task-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85em;
+    color: #777;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 10px;
+}
+
+.task-actions {
+    margin-top: 10px;
+    text-align: right;
+}
+
+.task-actions button {
+    padding: 5px 10px;
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+.task-actions button:last-child {
+    background-color: #dc3545; /* Rouge pour supprimer */
+    color: white;
+}
+
+/*  style pour le bouton Partager (bleu) */
+.task-actions .btn-share {
+    background-color: #007bff;
+    color: white;
+}
+
+
+
+/* ==== STYLES DE LA MODALE ==== */
+
+.modal-overlay {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; 
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+.close-modal:hover {
+    color: #000;
+}
+
+
+#formEditTask label {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+#formEditTask input[type="text"],
+#formEditTask textarea,
+#formEditTask input[type="date"],
+#formEditTask select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#formEditTask button {
+    background-color: #007bff; 
+    color: white;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+
+
+
+/* ==== STYLES MODALE COMMENTAIRES ==== */
+
+#commentList .comment {
+    background-color: #f9f9f9;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+}
+
+#commentList .comment-author {
+    font-weight: bold;
+    font-size: 0.9em;
+    color: #333;
+}
+
+#commentList .comment-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-left: 10px;
+}
+
+#commentList .comment-content {
+    font-size: 0.95em;
+    margin-top: 4px;
+    color: #555;
+    word-wrap: break-word;
+}
+
+/* ==== STYLES : DASHBOARD STATS ==== */
+
+.stats-container {
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px;
+}
+
+.stat-card {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 10px;
+}
+
+
+.chart-card {
+    position: relative;
+    height: 300px; 
+}
+#statusChart {
+    max-height: 100%;
+}
+
+.list-card ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.list-card li {
+    padding: 8px 5px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 0.9em;
+}
+.list-card li:last-child {
+    border-bottom: none;
+}
+.list-card li.no-items {
+    color: #888;
+    font-style: italic;
+}
+
+
+
+
+/* ==== STYLES ADMIN ==== */
+
+#usersTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#usersTable th,
+#usersTable td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+#usersTable th {
+    background-color: #f9f9f9;
+}
+
+#usersTable tr:nth-child(even) {
+    background-color: #fdfdfd;
+}
+
+
+
+#usersTable .role-select {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+#usersTable .user-actions .btn-delete-user {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 8px;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* ==== STYLES STATS GÉNÉRALES ADMIN ==== */
+
+.admin-stats-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.stat-box {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.stat-box .stat-value {
+    display: block;
+    font-size: 2.5em; 
+    font-weight: bold;
+    color: #007bff; 
+}
+
+.stat-box .stat-label {
+    font-size: 1em;
+    color: #555;
+}

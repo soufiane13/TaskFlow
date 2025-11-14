@@ -1,0 +1,67 @@
+body {
+    font-family: sans-serif;
+    display: grid;
+    place-items: center;
+    min-height: 90vh;
+    background-color: #f4f4f4;
+}
+
+div {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+input {
+    display: block;
+    margin-bottom: 10px;
+    width: 250px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+#btnLogin {
+    background-color: #007bff;
+    color: white;
+}
+
+#btnSignup {
+    background-color: #28a745;
+    color: white;
+}
+
+#btnLogout {
+    background-color: #dc3545;
+    color: white;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+
+.auth-link {
+    font-size: 0.9em;
+    margin-top: 15px;
+    text-align: center;
+}
+.auth-link a {
+    color: #007bff;
+    text-decoration: none;
+}
+.auth-link a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow - Tableau de bord</title>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    </head>
+<body>
+
+    <div class="container">
+        <nav>
+            <div id="userInfo">Bonjour, ...</div>
+            <div>
+                <button id="btnGoToAdmin" style="display: none; background-color: #ffc107; color: #333;">Administration</button>
+                
+                <button id="btnLogout">Déconnexion</button>
+            </div>
+        </nav>
+
+        <main>
+            
+
+            <section id="dashboardStats" class="stats-container">
+                <h2>Vue d'ensemble</h2>
+                <div class="stats-grid">
+                    <div class="stat-card chart-card">
+                        <h3>Tâches par Statut</h3>
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                    <div class="stat-card list-card">
+                        <h3>Tâches Urgentes</h3>
+                        <ul id="urgentTasksList">
+                            </ul>
+                    </div>
+                    <div class="stat-card list-card">
+                        <h3>Tâches en Retard</h3>
+                        <ul id="lateTasksList">
+                            </ul>
+                    </div>
+                </div>
+            </section>
+            <hr> <h2>Mes Tâches</h2>
+            
+            <form id="formAddTask">
+                <h3>Ajouter une nouvelle tâche</h3>
+                
+                <label for="taskTitle">Titre :</label>
+                <input type="text" id="taskTitle" placeholder="Titre de la tâche" required>
+                
+                <label for="taskDesc">Description :</label>
+                <textarea id="taskDesc" placeholder="Description..."></textarea>
+                
+                <label for="taskDueDate">Date limite :</label>
+                <input type="date" id="taskDueDate">
+                
+                <label for="taskPriority">Priorité :</label>
+                <select id="taskPriority">
+                    <option value="Faible">Faible</option>
+                    <option value="Moyenne" selected>Moyenne</option>
+                    <option value="Élevée">Élevée</option>
+                </select>
+                
+                <button type="submit">Ajouter</button>
+            </form>
+
+
+
+            <div id="taskList">
+                <h3>Liste de mes tâches</h3>
+                <p id="noTasksMessage">Vous n'avez pas encore de tâches.</p>
+            </div>
+        </main>
+    </div>
+
+
+    <div id="editModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Modifier la Tâche</h2>
+            <form id="formEditTask">
+                <input type="hidden" id="editTaskId">
+
+                <label for="editTaskTitle">Titre :</label>
+                <input type="text" id="editTaskTitle" required>
+                
+                <label for="editTaskDesc">Description :</label>
+                <textarea id="editTaskDesc"></textarea>
+                
+                <label for="editTaskDueDate">Date limite :</label>
+                <input type="date" id="editTaskDueDate">
+                
+                <label for="editTaskPriority">Priorité :</label>
+                <select id="editTaskPriority">
+                    <option value="Faible">Faible</option>
+                    <option value="Moyenne">Moyenne</option>
+                    <option value="Élevée">Élevée</option>
+                </select>
+
+                <label for="editTaskStatus">Statut :</label>
+                <select id="editTaskStatus">
+                    <option value="À faire">À faire</option>
+                    <option value="En cours">En cours</option>
+                    <option value="Terminé">Terminé</option>
+                </select>
+                
+                <button type="submit">Enregistrer les modifications</button>
+            </form>
+        </div>
+    </div>
+
+
+    <div id="shareModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Partager la Tâche</h2>
+            <form id="formShareTask">
+                <input type="hidden" id="shareTaskId">
+
+                <label for="userToShare">Partager avec :</label>
+                <select id="userToShare" required>
+                    <option value="">-- Choisir un utilisateur --</option>
+                    </select>
+                
+                <button type="submit">Partager</button>
+            </form>
+        </div>
+    </div>
+
+
+
+
+    <div id="commentModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Commentaires sur la Tâche</h2>
+            <input type="hidden" id="commentTaskId">
+            
+            <div id="commentList" style="max-height: 300px; overflow-y: auto; border: 1px solid #eee; padding: 10px; margin-bottom: 15px;">
+                </div>
+            
+            <form id="formAddComment">
+                <label for="commentContent">Ajouter un commentaire :</label>
+                <textarea id="commentContent" placeholder="Écrivez votre message..." required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
+
